@@ -81,7 +81,8 @@ bool stream_parse(std::stringstream &stream){
 
 int main() {
     std::string input="";
-    double epsylon=0.0001;
+    double epsylon=0.0001,quit_number=-273;
+    std::cout<< "Welcome! Input inside temp " << quit_number<< " for exit."<<std::endl;
     char buf[100];
     bool notParsed=true;
     do{
@@ -94,5 +95,5 @@ int main() {
         switches_state = check_conditions();
         ++hour;
         if (hour>23) hour = 0;
-    }while(notParsed);
+    }while(notParsed|| temperature_inside>epsylon+quit_number || temperature_inside<-epsylon+quit_number);
 }
